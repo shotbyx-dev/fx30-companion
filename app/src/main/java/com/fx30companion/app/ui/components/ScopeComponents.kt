@@ -25,6 +25,7 @@ import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import androidx.compose.ui.graphics.lerp
+import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -160,8 +161,8 @@ fun WaveformMonitor(exposureEv: Float, modifier: Modifier = Modifier) {
             val path = Path()
             for (i in 0..steps) {
                 val x = i * stepX
-                val wobble = sin(i * 0.33 + zi * 1.7f) * h * 0.008f +
-                        sin(i * 0.11 + zi * 3.1f) * h * 0.013f
+                val wobble = sin(i * 0.33f + zi * 1.7f) * h * 0.008f +
+                        sin(i * 0.11f + zi * 3.1f) * h * 0.013f
                 val y = (baseY + wobble).coerceIn(0f, h)
                 if (i == 0) path.moveTo(x, y) else path.lineTo(x, y)
             }
