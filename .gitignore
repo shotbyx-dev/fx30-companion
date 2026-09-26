@@ -13,3 +13,6 @@ build-local.sh
 *.hprof
 *.keystore
 !gradle-wrapper.jar
+
+# standalone test scaffolding (not part of the app)
+.test-run/
