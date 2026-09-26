@@ -169,8 +169,8 @@ fun WaveformMonitor(exposureEv: Float, modifier: Modifier = Modifier) {
             val tone = lerp(Color(0xFF3A3A3A), Color(0xFFE8F5E9), (ireVal / 110f).coerceIn(0f, 1f))
             drawPath(
                 path,
-                tone.copy(alpha = (0.45f + zone.weight * 1.6f).coerceAtMost(1f)),
-                style = Stroke(width = (1.5f + zone.weight * 9f).dp.toPx())
+                tone.copy(alpha = (0.45f + zone.weight.toFloat() * 1.6f).coerceAtMost(1f)),
+                style = Stroke(width = (1.5f + zone.weight.toFloat() * 9f).dp.toPx())
             )
         }
     }
